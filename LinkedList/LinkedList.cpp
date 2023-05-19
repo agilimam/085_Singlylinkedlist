@@ -88,7 +88,9 @@ bool List::delNode(int nim)/*Menghapus Node dari Dalam List*/
 	if (current == START)
 		START = START->next;
 
-
+	delete current;
+	return true;
+}
 
 
 
