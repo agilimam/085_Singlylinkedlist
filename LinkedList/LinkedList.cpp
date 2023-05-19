@@ -56,5 +56,13 @@ void List::addNode()/*Menambahkan sebuah Node kedalam list*/
 	previos = START;
 
 
-
+	while ((current != NULL) && (nim >= current->noMhs))
+	{
+		if (nim == current->noMhs)
+		cout << "\nDuplikasi noMhs tidak diijinkan\n";
+		return;
+	}
+	previos = current;
+	current = current->next;
+}
 
