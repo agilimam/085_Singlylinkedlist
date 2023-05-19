@@ -105,7 +105,44 @@ bool List::Search(int nim, Node** previous, Node** current)
 	return (*current != NULL);
 }
 
+void List::tarverse()/*Menggunjungi dan membaca data dalam list*/
+{
+	if (listEmpty())
+		cout << "\nlist kosong\n";
+	else
+	{
+		cout << endl << "Data didalam list adalah: " << endl;
+		Node* currentNode;
+		for (currentNode = START; currentNode != NULL; currentNode->next)
+		{
+			cout << currentNode->noMhs << " " << currentNode->nama << "\n";
+		}
+		cout << endl;
+	
+	}
+}
 
+int main()
+{
+	List mhs;
+	int nim;
+	char ch;
+	while (1)
+	{
+		cout << endl << "Menu";
+		cout << endl << "1.Menambah data kedalam list" << endl;
+		cout << "2. Menghapus data dari dalam list" << endl;
+		cout << "3. Menampilkan semua data didalam list" << endl;
+		cout << "4. Mencari data dalam list" << endl;
+		cout << "5. Keluar" << endl;
+		cout << endl << "Masukkan pilihan (1-5): ":
+		cin >> ch;
+		switch (ch)
+		{
+		case '1' : 
+		}
+	}
+}
 
 
 
