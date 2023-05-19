@@ -19,6 +19,7 @@ public:
 	bool Search(int nim, Node** previous);
 	bool listEmpty();
 	bool delNode(int element);
+	bool Search(int nim, Node** previous, Node** current);
 	void tarverse();
 };
 
@@ -50,10 +51,10 @@ void List::addNode()/*Menambahkan sebuah Node kedalam list*/
 		START = nodeBaru;
 		return;
 	}
-	Node* previos, * current;
+	Node* previous, * current;
 
 	current = START;
-	previos = START;
+	previous = START;
 
 
 	while ((current != NULL) && (nim >= current->noMhs))
@@ -63,13 +64,13 @@ void List::addNode()/*Menambahkan sebuah Node kedalam list*/
 			cout << "\nDuplikasi noMhs tidak diijinkan\n";
 			return;
 		}
-		previos = current;
+		previous = current;
 		current = current->next;
 
 	}
 	/*jika loop di atas dieksekusi, provious dan current akan menempati posisi diterima*/
 	nodeBaru->next = current;
-	previos->next = nodeBaru;
+	previous->next = nodeBaru;
 }
 
 bool List::listEmpty()
@@ -82,7 +83,7 @@ bool List::listEmpty()
 bool List::delNode(int nim)/*Menghapus Node dari Dalam List*/
 {
 	Node* current, * previous;
-	if (Search(nim, &previous, *current) == false)
+	if (Search(nim, &previous, &current) == false);
 		return false;
 	previous->next = current->next;
 	if (current == START)
@@ -91,6 +92,23 @@ bool List::delNode(int nim)/*Menghapus Node dari Dalam List*/
 	delete current;
 	return true;
 }
+/*check apabila node yang dimaksud ada didalam list atau tidak*/
+bool List::Search(int nim, Node** previous, Node** current)
+{
+	*previous = START;
+	*current = START;
+	while ((*current != NULL) && (nim != (*current)->noMhs))
+	{
+		*previous = *current;
+		*current = (*current)->next;
+	}
+	return (*current != NULL);
+}
+
+
+
+
+
 
 
 
