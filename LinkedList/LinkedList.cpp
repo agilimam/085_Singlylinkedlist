@@ -17,7 +17,7 @@ public:
 	List();
 	void addNode();
 	bool Search(int nim, Node** previous);
-	bool listEmpety();
+	bool listEmpty();
 	bool delNode(int element);
 	void tarverse();
 };
@@ -59,10 +59,25 @@ void List::addNode()/*Menambahkan sebuah Node kedalam list*/
 	while ((current != NULL) && (nim >= current->noMhs))
 	{
 		if (nim == current->noMhs)
-		cout << "\nDuplikasi noMhs tidak diijinkan\n";
-		return;
+		{
+			cout << "\nDuplikasi noMhs tidak diijinkan\n";
+			return;
+		}
+		previos = current;
+		current = current->next;
+
 	}
-	previos = current;
-	current = current->next;
+	/*jika loop di atas dieksekusi, provious dan current akan menempati posisi diterima*/
+	nodeBaru->next = current;
+	previos->next = nodeBaru;
 }
+
+bool List::listEmpty()
+{
+	if (START == NULL)
+		return true;
+	else
+		return false;
+}
+
 
