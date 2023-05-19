@@ -21,3 +21,9 @@ public:
 	bool delNode(int element);
 	void tarverse();
 };
+
+List::List()
+{
+	START = NULL;
+}
+
