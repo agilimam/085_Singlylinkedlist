@@ -46,6 +46,15 @@ void List::addNode()/*Menambahkan sebuah Node kedalam list*/
 			cout << "\nDuplikasi noMhs tidak diijinkan\n";
 			return;
 		}
+		nodeBaru->next = START;
+		START = nodeBaru;
+		return;
 	}
-}
+	Node* previos, * current;
+
+	current = START;
+	previos = START;
+
+
+
 
